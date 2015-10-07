@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.views">
+      <category
+            name="%category.name"
+            id="cn.edu.pku.richComments">
+      </category>
+      <view
+            name="%view.name"
+            icon="icons/sample2.gif"
+            category="cn.edu.pku.richComments"
+            class="cn.edu.pku.richcomments.views.RCView"
+            id="cn.edu.pku.richcomments.views.RCView">
+      </view>
+   </extension>
+   <extension
+         point="org.eclipse.ui.perspectiveExtensions">
+      <perspectiveExtension
+            targetID="org.eclipse.jdt.ui.JavaPerspective">
+         <view
+               ratio="0.5"
+               relative="org.eclipse.ui.views.ProblemView"
+               relationship="right"
+               id="cn.edu.pku.richcomments.views.RCView">
+         </view>
+      </perspectiveExtension>
+   </extension>
+   <extension
+         point="org.eclipse.help.contexts">
+      <contexts
+            file="contexts.xml">
+      </contexts>
+   </extension>
+   <extension
+         point="org.eclipse.ui.actionSets">
+      <actionSet
+            id="cn.edu.pku.richComments.actionSet"
+            label="%actionSet.label"
+            visible="true">
+         <menu
+               id="richComments menu"
+               label="%menu.label">
+            <separator
+                  name="cn.edu.pku.richComments">
+            </separator>
+         </menu>
+         <action
+               class="cn.edu.pku.richcomments.actions.SampleAction"
+               icon="icons/sample.gif"
+               id="cn.edu.pku.richcomments.actions.SampleAction"
+               label="%action.label"
+               menubarPath="richComments menu/cn.edu.pku.richComments"
+               toolbarPath="cn.edu.pku.richComments"
+               tooltip="%action.tooltip">
+         </action>
+      </actionSet>
+   </extension>
+
+</plugin>
